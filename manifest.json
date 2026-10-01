@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Title Prefixer",
+  "version": "1.1.0",
+  "description": "브라우저 탭 제목에 프리픽스를 붙이거나 URL 별로 지정한 제목으로 바꿉니다",
+  "permissions": ["storage", "scripting", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Title Prefixer"
+  },
+  "options_page": "options/options.html"
+}

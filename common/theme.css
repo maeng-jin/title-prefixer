@@ -1,0 +1,243 @@
+/* 테마 색상 변수 — 팝업·관리 페이지 공용
+ *
+ * 라이트는 기존 화면에 쓰던 색을 그대로 옮긴 것이다. 값이 하나도 바뀌지 않았으므로
+ * 라이트 화면은 테마 도입 전과 완전히 동일하게 보인다.
+ *
+ * 다크는 브라우저 설정 화면과 같은 중성 그레이 계열이다. 단순 반전이 아니라 면을 어둡게
+ * 깔고, 브랜드 파랑은 버튼·선택 항목에서 라이트와 같은 값을 유지해 톤앤매너를 맞췄다.
+ *
+ * 기본은 브라우저(OS) 설정을 따라간다: prefers-color-scheme
+ * 사용자가 라이트/다크를 직접 고르면 <html data-theme="light|dark"> 가 붙고
+ * 그 값이 미디어 쿼리를 덮어쓴다. (theme.js 가 설정)
+ *
+ * ⚠ 아래 두 다크 블록은 내용이 같아야 한다 (시스템 설정용 / 명시 선택용).
+ *   cats-account-manager-extension 의 theme.css 를 그대로 가져온 것이다.
+ *   값을 바꿀 때는 두 블록을 함께 고친다.
+ */
+
+:root {
+  /* 면 — 웨일/크롬 설정 화면과 같은 중성 그레이 계열. 배경이 가장 어둡고 카드가 한 단계 밝다 */
+  --bg: #f4f5f9;            /* 페이지 배경 */
+  --surface: #ffffff;       /* 카드·패널 */
+  --surface-2: #f8f9fc;     /* 토큰 상세 패널 */
+  --surface-3: #f0f0f5;     /* 호버 · 옅은 구분선 */
+  --code-bg: #f6f7fb;       /* JSON·코드 블록 */
+  --input-bg: #ffffff;      /* 입력란 (카드보다 어둡게 눌러 경계를 만든다) */
+  --btn-bg: #e7eaf3;        /* 기본 버튼 */
+  --btn-border: #868fa5;    /* 기본 버튼 테두리 — 배경 대비 약 3:1 */
+  --btn-hover-bg: #d7def5;  /* 기본 버튼 호버 */
+  --btn-active-bg: #c7d1f0; /* 기본 버튼 누른 순간 */
+
+  /* 글자 — 진한 쪽부터 옅은 쪽 순서 */
+  --text: #1a1a2e;         /* 본문 */
+  --text-2: #333333;       /* 버튼 라벨 */
+  --text-dim: #555555;
+  --text-mid: #666666;
+  --text-soft: #777777;
+  --text-mute: #888888;
+  --text-faint: #999999;
+  --text-fainter: #aaaaaa;
+  --text-ghost: #bbbbbb;   /* 드래그 핸들 등 가장 옅은 요소 */
+
+  /* 테두리 — 진한 쪽부터 옅은 쪽 순서 */
+  --border: #d0d0dc;       /* 입력란·버튼 */
+  --border-2: #e3e3ea;     /* 패널 외곽 */
+  --border-3: #e9e9f0;
+  --border-soft: #ececf1;  /* 구분선 */
+  --border-faint: #f4f4f8; /* 표 내부 줄 */
+
+  /* 브랜드
+     면(버튼·선택된 항목)에 쓰는 색은 두 테마에서 같은 값이다 — 주 버튼이 똑같은 파랑으로
+     보여 톤앤매너가 유지된다. 반대로 배경 위 글자로 쓰는 색은 어두운 배경에서 #4c6ef5 의
+     명암이 부족해 다크에서만 밝게 올린다. */
+  --accent: #4c6ef5;           /* 채워진 면 */
+  --accent-hover: #3b5bdb;     /* 면 호버 (다크에서는 밝아지는 쪽이 자연스럽다) */
+  --accent-bg: #edf2ff;        /* 옅은 강조 배경 (칩·선택 항목) */
+  --accent-bg-2: #f0f2ff;      /* 옅은 강조 배경 (버튼·목록 호버) */
+  --accent-on: #ffffff;        /* accent 면 위의 글자 */
+  --on-accent-dim: rgba(255, 255, 255, 0.7);
+  --accent-fg: #4c6ef5;        /* 배경 위 강조 글자 */
+  --accent-fg-strong: #3b5bdb;
+
+  /* 상태 — 다크는 배경을 깊고 진하게, 글자를 밝게 (반전이 아니라 채도를 살린 값) */
+  --danger: #e03131;
+  --danger-bg: #fff5f5;
+  --danger-border: #ffc9c9;
+  --danger-border-soft: #ffe3e3;
+  --danger-solid: #e03131;       /* 위험 토스트처럼 꽉 찬 면 */
+  --on-danger: #ffffff;
+  --alert-bg: #fff0f0;           /* 경고 배너 */
+  --alert-fg: #a02020;
+  --ok: #2b8a3e;
+  --ok-bg: #ebfbee;
+  --ok-border: #d3f9d8;
+  --warn: #7a6000;
+  --warn-bg: #fff9db;
+  --warn-border: #ffe066;
+  --pending-bg: #fff9f0;
+  --pending-border: #ffc078;
+
+  /* 그 외 */
+  --toast-bg: #1a1a2e;
+  --toast-fg: #ffffff;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --backdrop: rgba(0, 0, 0, 0.35);
+
+  color-scheme: light;
+}
+
+/* 시스템 설정이 다크일 때 — 사용자가 라이트를 명시하지 않은 경우에만 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* 면 — 웨일/크롬 설정 화면과 같은 중성 그레이 계열. 배경이 가장 어둡고 카드가 한 단계 밝다 */
+    --bg: #202124;            /* 페이지 배경 */
+    --surface: #292a2d;       /* 카드·패널 */
+    --surface-2: #303134;     /* 토큰 상세 패널 */
+    --surface-3: #35363a;     /* 호버 · 옅은 구분선 */
+    --code-bg: #2a2b2e;       /* JSON·코드 블록 */
+    --input-bg: #202124;      /* 입력란 (카드보다 어둡게 눌러 경계를 만든다) */
+    --btn-bg: #43474b;        /* 기본 버튼 */
+    --btn-border: #757a81;    /* 기본 버튼 테두리 — 배경 대비 약 3:1 */
+    --btn-hover-bg: #4f545b;  /* 기본 버튼 호버 */
+    --btn-active-bg: #585d64; /* 기본 버튼 누른 순간 */
+
+    /* 글자 — 진한 쪽부터 옅은 쪽 순서 */
+    --text: #e8eaed;         /* 본문 */
+    --text-2: #dee1e5;       /* 버튼 라벨 */
+    --text-dim: #c5c8cc;
+    --text-mid: #b4b8bd;
+    --text-soft: #a5a9ae;
+    --text-mute: #9aa0a6;
+    --text-faint: #8e9296;
+    --text-fainter: #82868a;
+    --text-ghost: #70747a;   /* 드래그 핸들 등 가장 옅은 요소 */
+
+    /* 테두리 — 진한 쪽부터 옅은 쪽 순서 */
+    --border: #5f6368;       /* 입력란·버튼 */
+    --border-2: #3c4043;     /* 패널 외곽 */
+    --border-3: #37393d;
+    --border-soft: #323438;  /* 구분선 */
+    --border-faint: #2d2f33; /* 표 내부 줄 */
+
+    /* 브랜드
+       면(버튼·선택된 항목)에 쓰는 색은 두 테마에서 같은 값이다 — 주 버튼이 똑같은 파랑으로
+       보여 톤앤매너가 유지된다. 반대로 배경 위 글자로 쓰는 색은 어두운 배경에서 #4c6ef5 의
+       명암이 부족해 다크에서만 밝게 올린다. */
+    --accent: #4c6ef5;           /* 채워진 면 */
+    --accent-hover: #5c7cf7;     /* 면 호버 (다크에서는 밝아지는 쪽이 자연스럽다) */
+    --accent-bg: #2a2f45;        /* 옅은 강조 배경 (칩·선택 항목) */
+    --accent-bg-2: #272b3e;      /* 옅은 강조 배경 (버튼·목록 호버) */
+    --accent-on: #ffffff;        /* accent 면 위의 글자 */
+    --on-accent-dim: rgba(255, 255, 255, 0.7);
+    --accent-fg: #9db4ff;        /* 배경 위 강조 글자 */
+    --accent-fg-strong: #b0c2ff;
+
+    /* 상태 — 다크는 배경을 깊고 진하게, 글자를 밝게 (반전이 아니라 채도를 살린 값) */
+    --danger: #f28b82;
+    --danger-bg: #3a2225;
+    --danger-border: #5c3237;
+    --danger-border-soft: #4a2a2e;
+    --danger-solid: #b3312f;       /* 위험 토스트처럼 꽉 찬 면 */
+    --on-danger: #ffffff;
+    --alert-bg: #3a2124;           /* 경고 배너 */
+    --alert-fg: #f6a8a2;
+    --ok: #81c995;
+    --ok-bg: #1f2f26;
+    --ok-border: #2f4a39;
+    --warn: #fdd663;
+    --warn-bg: #332c1a;
+    --warn-border: #4d4325;
+    --pending-bg: #332a1c;
+    --pending-border: #6b5430;
+
+    /* 그 외 */
+    --toast-bg: #3c4043;
+    --toast-fg: #e8eaed;
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
+    --backdrop: rgba(0, 0, 0, 0.6);
+
+    color-scheme: dark;
+  }
+
+  :root:not([data-theme="light"]) input::placeholder, textarea::placeholder { color: #8e9296; }
+}
+
+/* 사용자가 다크를 직접 고른 경우 */
+:root[data-theme="dark"] {
+  /* 면 — 웨일/크롬 설정 화면과 같은 중성 그레이 계열. 배경이 가장 어둡고 카드가 한 단계 밝다 */
+  --bg: #202124;            /* 페이지 배경 */
+  --surface: #292a2d;       /* 카드·패널 */
+  --surface-2: #303134;     /* 토큰 상세 패널 */
+  --surface-3: #35363a;     /* 호버 · 옅은 구분선 */
+  --code-bg: #2a2b2e;       /* JSON·코드 블록 */
+  --input-bg: #202124;      /* 입력란 (카드보다 어둡게 눌러 경계를 만든다) */
+  --btn-bg: #43474b;        /* 기본 버튼 */
+  --btn-border: #757a81;    /* 기본 버튼 테두리 — 배경 대비 약 3:1 */
+  --btn-hover-bg: #4f545b;  /* 기본 버튼 호버 */
+  --btn-active-bg: #585d64; /* 기본 버튼 누른 순간 */
+
+  /* 글자 — 진한 쪽부터 옅은 쪽 순서 */
+  --text: #e8eaed;         /* 본문 */
+  --text-2: #dee1e5;       /* 버튼 라벨 */
+  --text-dim: #c5c8cc;
+  --text-mid: #b4b8bd;
+  --text-soft: #a5a9ae;
+  --text-mute: #9aa0a6;
+  --text-faint: #8e9296;
+  --text-fainter: #82868a;
+  --text-ghost: #70747a;   /* 드래그 핸들 등 가장 옅은 요소 */
+
+  /* 테두리 — 진한 쪽부터 옅은 쪽 순서 */
+  --border: #5f6368;       /* 입력란·버튼 */
+  --border-2: #3c4043;     /* 패널 외곽 */
+  --border-3: #37393d;
+  --border-soft: #323438;  /* 구분선 */
+  --border-faint: #2d2f33; /* 표 내부 줄 */
+
+  /* 브랜드
+     면(버튼·선택된 항목)에 쓰는 색은 두 테마에서 같은 값이다 — 주 버튼이 똑같은 파랑으로
+     보여 톤앤매너가 유지된다. 반대로 배경 위 글자로 쓰는 색은 어두운 배경에서 #4c6ef5 의
+     명암이 부족해 다크에서만 밝게 올린다. */
+  --accent: #4c6ef5;           /* 채워진 면 */
+  --accent-hover: #5c7cf7;     /* 면 호버 (다크에서는 밝아지는 쪽이 자연스럽다) */
+  --accent-bg: #2a2f45;        /* 옅은 강조 배경 (칩·선택 항목) */
+  --accent-bg-2: #272b3e;      /* 옅은 강조 배경 (버튼·목록 호버) */
+  --accent-on: #ffffff;        /* accent 면 위의 글자 */
+  --on-accent-dim: rgba(255, 255, 255, 0.7);
+  --accent-fg: #9db4ff;        /* 배경 위 강조 글자 */
+  --accent-fg-strong: #b0c2ff;
+
+  /* 상태 — 다크는 배경을 깊고 진하게, 글자를 밝게 (반전이 아니라 채도를 살린 값) */
+  --danger: #f28b82;
+  --danger-bg: #3a2225;
+  --danger-border: #5c3237;
+  --danger-border-soft: #4a2a2e;
+  --danger-solid: #b3312f;       /* 위험 토스트처럼 꽉 찬 면 */
+  --on-danger: #ffffff;
+  --alert-bg: #3a2124;           /* 경고 배너 */
+  --alert-fg: #f6a8a2;
+  --ok: #81c995;
+  --ok-bg: #1f2f26;
+  --ok-border: #2f4a39;
+  --warn: #fdd663;
+  --warn-bg: #332c1a;
+  --warn-border: #4d4325;
+  --pending-bg: #332a1c;
+  --pending-border: #6b5430;
+
+  /* 그 외 */
+  --toast-bg: #3c4043;
+  --toast-fg: #e8eaed;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --backdrop: rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] input::placeholder, textarea::placeholder { color: #8e9296; }

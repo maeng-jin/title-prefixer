@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title Prefixer</title>
+  <link rel="stylesheet" href="../common/theme.css">
+  <link rel="stylesheet" href="popup.css">
+  <script src="../common/theme.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <strong>Title Prefixer</strong>
+    <label class="switch" title="끄면 모든 탭의 제목을 원래대로 둡니다">
+      <input type="checkbox" id="enabled"> <span id="enabled-text"></span>
+    </label>
+  </div>
+
+  <div class="body">
+    <div class="current">
+      <div class="label">현재 탭</div>
+      <div class="url" id="current-url"></div>
+      <div class="status" id="current-status"></div>
+    </div>
+
+    <div id="rule-form" class="form">
+      <div class="label" id="form-title">이 페이지 규칙 추가</div>
+      <div class="field">
+        <select id="match"></select>
+        <input type="text" id="pattern" placeholder="URL 패턴">
+      </div>
+      <input type="text" id="title" placeholder="탭 제목 (예: ps s dev)">
+      <div class="actions">
+        <button class="danger hidden" id="delete-btn">규칙 삭제</button>
+        <button class="primary" id="save-btn">추가</button>
+      </div>
+      <div class="error" id="form-error"></div>
+    </div>
+    <p class="hint hidden" id="unsupported">http(s) 페이지에서만 동작합니다.</p>
+  </div>
+
+  <div class="footer">
+    <button class="link" id="open-options">설정 열기 →</button>
+  </div>
+
+  <script src="../common/config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
